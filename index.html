@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stoutref2's Amazing Page</title>
+  <style>
+    body {
+      background-color: blue;
+      color: yellow;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      text-shadow: 2px 2px black;
+    }
+    p {
+        text-align: center;
+        font-size: 36px;
+    }
+    a {
+        color: greenyellow;
+    }
+    .marquee {
+      font-size: 24px;
+      color: lime;
+      background-color: black;
+      padding: 10px;
+    }
+    blink {
+      animation: blink-animation 1s steps(5, start) infinite;
+      -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    }
+    @keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+    @-webkit-keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+    .center_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1><blink>stoutref2: Editor, 3D Modeler, Coder, Graphic Designer</blink></h1>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">
+      Welcome to my super cool 90s website! Check out my awesome skills!
+    </marquee>
+  </div>
+  <div>
+    <h1>ABOUT ME</h1>
+    <p>Hi, my name is stoutref2, I am a freelance video editor who wants to make content for those I enjoy.</p>
+    <p>I mainly use premiere pro/after effects to edit my videos, although I utilize many programs such as blender and even use my canon camera to take archival-like footage for a more stylized approches.</p>
+    <p>Currently I am a full time studnet and researcher, you can find my work below</p>
+    <p><a href="https://www.youtube.com/watch?v=brQHwrZUXZE">arisXO video</a></p>
+    <p>and here is a picture of me for reference</p>
+    <img src="reference.jpg" alt="wowie" width="400" height="500" class="center_img">
+</body>
+</html>
