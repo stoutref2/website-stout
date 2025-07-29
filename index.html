@@ -1,122 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Comfortaa:wght@300..700&family=Encode+Sans:wght@100..900&display=swap" rel="stylesheet">
   <title>stoutref2's Amazing Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Ugly section */
-    .ugly {
-      background-color: blue;
-      color: yellow;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      padding-bottom: 500px;
-      padding-top: 20px;
-    }
-    .ugly h1 {
-      text-align: center;
-      font-size: 48px;
-      text-shadow: 2px 2px black;
-    }
-    .ugly p {
-      text-align: center;
-      font-size: 36px;
-    }
-    .ugly a {
-      color: greenyellow;
-    }
-    .marquee {
-      font-size: 24px;
-      color: lime;
-      background-color: black;
-      padding: 10px;
-    }
-    blink {
-      animation: blink-animation 1s steps(5, start) infinite;
-      -webkit-animation: blink-animation 1s steps(5, start) infinite;
-    }
-    @keyframes blink-animation {
-      to { visibility: hidden; }
-    }
-    @-webkit-keyframes blink-animation {
-      to { visibility: hidden; }
-    }
-    .center_img {
-      display: block;
-      margin: 30px auto;
-    }
-
-    /* Sleek section */
-    .sleek {
-      background-color: rgb(247, 246, 244);
-      color: #111;
-      padding: 500px 20px 100px 20px;
-    }
-    .sleek h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      font-family: Encode Sans;
-      font-weight: 200;
-    }
-    .sleek p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 10px auto;
-      line-height: 1.6;
-      font-family: Encode Sans;
-      font-weight: 400;
-    }
-    .sleek a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    .sleek a:hover {
-      text-decoration: underline;
-    }
-
-    .transition {
-      height: 600px;
-      background: linear-gradient(blue, rgb(247, 246, 244));
-    }
-
-    .content-row {
-      display: flex;
-      align-items: center;       /* vertically centers image and text */
-      justify-content: space-between;  /* ensures space between */
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      gap: 40px;
-      flex-wrap: wrap;           /* wraps on mobile */
-      background-color: rgb(247, 246, 244);
-    }
-
-    .content-image {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-    }
-
-    .content-text {
-      max-width: 600px;
-      width: 100%;
-      text-align: right;
-    }
-
-    .content-text2 {
-      padding-top: 300px;
-    }
+  <link rel="stylesheet" href="styles.css">
   </style>
 </head>
+
 <body>
 
-  <!-- Ugly top section -->
   <div class="ugly">
     <h1><blink>stoutref2: Editor, 3D Modeler, Coder, Graphic Designer</blink></h1>
     <div class="marquee">
@@ -141,38 +32,110 @@
 
   <div class="transition"></div>
 
-  <!-- Sleek professional section -->
-  <div class="sleek">
-    <div class="content-row">
-      <img src="ref2.png" alt="stoutref2" class="content-image">
-      <div class="content-text">
-      <h2>stoutref2: Video Editor, Graphic Designer, 3D Modeler, Coder</h2>
-      <p>Hello, I am a freelance editor who wants to help content creators express themselves and promote themselves.</p>
-      <p>Services include:</p>
-      <p>- Video Editing (Premiere Pro, After Effects)</p>
-      <p>- 3D Modeling (Blender)</p>
-      <p>- Graphic Design and Branding (Photoshop)</p>
-      <p>Contact me for collaboration:</p>
-      <p>Email: <a href="mailto:stoutref2@gmail.com">stoutref2@gmail.com</a></p>
-      <p>Discord: stoutref2</p>
-      <p>Twitter: <a href="https://twitter.com/stoutref_2">@stoutref_2</a></p>
-      <p>Twitch: <a href="https://twitch.tv/jbornfps">twitch.tv/jbornfps</a></p>
-      </div>
-      <div class="content-text2">
-      <h2>Below here is some of my work you can see</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/brQHwrZUXZE?si=dLMpr916L2dVsUsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <video width="320" height="240" controls>
-        <source src="bind.mp4" type="video/mp4">
-      </video>
-      <video width="320" height="240" controls>
-        <source src="bind_destroyed.mp4" type="video/mp4">
-      </video>
-      <img src="chris_render.gif" alt="uhhhh" style="width:512px;height:512px;">
-      <img src="dom_render.png" alt="dom" class="content-image">
-      <img src="christmas_render.png" alt="christmas" class="content-image">
+  <div class="glass-intro">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+    
+    <div class="glass-wrapper">
+      <div class="glass-panel">
+        <h1>Hello, I am stoutref2</h1>
+        <p>Video Editor, 3D Modeler, Coder, Graphic Designer</p>
       </div>
     </div>
   </div>
+
+  <div class="about-section">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>
+        I am a freelance editor who wants to help content creators express themselves and promote themselves.
+      </p>
+      <p>
+        I use a lot of applications and tools for my work
+      </p>
+    </div>
+  </div>
+
+  <div class="work-section">
+    <h2>My Work</h2>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <iframe 
+          width="100%" 
+          height="215" 
+          src="https://www.youtube.com/embed/brQHwrZUXZE" 
+          title="arisXO Edit" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <h3>arisXO Video</h3>
+        <p>Edited in Premiere Pro & After Effects</p>
+      </div>
+
+      <div class="work-card">
+        <iframe 
+          width="100%" 
+          height="215" 
+          src="https://www.youtube.com/embed/yNt3V6npx0M?si=GH02wGf8-R-bcYH6" 
+          title="arisXO Edit" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <h3>arisXO Video</h3>
+        <p>Edited in Premiere Pro & After Effects</p>
+      </div>
+
+      <div class="work-card">
+        <img src="chris_render.gif" alt="uhhhh">
+        <h3>Low Poly 3D Model</h3>
+        <p>3D Model of character, modeled and textured in Blender</p>
+      </div>
+
+      <div class="work-card">
+        <video autoplay muted loop playsinline controls width="100%" poster="preview.jpg">
+          <source src="scrib.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3>3D Starting Soon Screen</h3>
+        <p>3D Model of character and environment.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="tools-section">
+    <h2>Tools I Use</h2>
+    <div class="tools-grid">
+      <div class="tool-item">
+        <img src="premier.png" alt="Premiere Pro">
+        <span>Premiere Pro</span>
+      </div>
+      <div class="tool-item">
+        <img src="aftereffects.png" alt="After Effects">
+        <span>After Effects</span>
+      </div>
+      <div class="tool-item">
+        <img src="photoshop.png" alt="Photoshop">
+        <span>Photoshop</span>
+      </div>
+      <div class="tool-item">
+        <img src="blender.png" alt="Blender">
+        <span>Blender</span>
+      </div>
+      <div class="tool-item">
+        <img src="audacity.png" alt="Audacity">
+        <span>Audacity</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
