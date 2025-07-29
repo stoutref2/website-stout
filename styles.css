@@ -266,6 +266,34 @@
       filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.5));
     }
 
+  .contact-section {
+    background-color: #000;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    font-family: 'Encode Sans', sans-serif;
+  }
+
+  .contact-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .contact-list {
+    font-size: 18px;
+    line-height: 2;
+    color: #ccc;
+  }
+
+  .contact-list a {
+    color: #00aaff;
+    text-decoration: none;
+  }
+
+  .contact-list a:hover {
+    text-decoration: underline;
+  }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
