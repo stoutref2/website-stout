@@ -294,7 +294,122 @@
     text-decoration: underline;
   }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+  .rates-section {
+    background-color: #000000;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    font-family: 'Encode Sans', sans-serif;
+  }
+
+  .rates-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .rates-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .rate-card {
+    background-color: #111111;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(46, 46, 46, 0.3);
+    min-width: 250px;
+    transition: transform 0.3s ease;
+  }
+
+  .rate-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .rate-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00aaff;
+  }
+
+  .price {
+    font-size: 20px;
+    color: #eee;
+  }
+
+  .rate-note {
+    font-size: 16px;
+    color: #bbb;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .other-works-section {
+    background-color: #000000;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    font-family: 'Encode Sans', sans-serif;
+  }
+
+  .other-works-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .other-works-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .other-work-card {
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-align: left;
+  }
+
+  .other-work-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .other-work-card h3 {
+    color: #00aaff;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .other-work-card p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  .other-work-card .status {
+    margin-top: 10px;
+    font-style: italic;
+    color: #888;
+  }
+
+  .other-work-icon {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
