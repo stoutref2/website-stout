@@ -19,8 +19,8 @@ panel.addEventListener('mousemove', (e) => {
   const centerX = rect.width / 2;
   const centerY = rect.height / 2;
 
-  const rotateX = ((y - centerY) / centerY) * -15;
-  const rotateY = ((x - centerX) / centerX) * 15;
+  const rotateX = ((y - centerY) / centerY) * -25;
+  const rotateY = ((x - centerX) / centerX) * 25;
 
   panel.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
