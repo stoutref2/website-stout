@@ -5,58 +5,6 @@
       font-family: Arial, sans-serif;
     }
 
-    .ugly {
-      background-color: blue;
-      color: yellow;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      padding-bottom: 500px;
-      padding-top: 20px;
-    }
-    .ugly h1 {
-      text-align: center;
-      font-size: 48px;
-      text-shadow: 2px 2px black;
-    }
-    .ugly p {
-      text-align: center;
-      font-size: 36px;
-    }
-    .ugly a {
-      color: greenyellow;
-    }
-    .marquee {
-      font-size: 24px;
-      color: lime;
-      background-color: black;
-      padding: 10px;
-    }
-    blink {
-      animation: blink-animation 1s steps(5, start) infinite;
-      -webkit-animation: blink-animation 1s steps(5, start) infinite;
-    }
-    @keyframes blink-animation {
-      to { visibility: hidden; }
-    }
-    @-webkit-keyframes blink-animation {
-      to { visibility: hidden; }
-    }
-    .center_img {
-      display: block;
-      margin: 30px auto;
-    }
-
-    .transition {
-      height: 800px;
-      padding-bottom: 200px;
-      background: linear-gradient(
-        to bottom,
-        blue 0%,
-        #000f3d 30%,
-        #020202 65%,
-        #000000 100%
-      );
-    }
-
     .glass-wrapper {
         display: flex;
         justify-content: center;
