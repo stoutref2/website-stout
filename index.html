@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>stoutref2 — Work In Progress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-color: #050608;
+      --accent: #e0e0e0;
+      --accent-soft: rgba(224, 224, 224, 0.65);
+      --glass-bg: rgba(10, 10, 12, 0.6);
+      --border-glow: rgba(255, 255, 255, 0.08);
+      --text-soft: #c5c5c5;
+      --text-muted: #7b7b7b;
+      --noise-opacity: 0.13;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: var(--bg-color) url("concrete-texture.jpg") center/cover fixed no-repeat;
+      color: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.98) 45%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      opacity: var(--noise-opacity);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
+      background: linear-gradient(
+        135deg,
+        rgba(10, 10, 12, 0.85),
+        rgba(25, 25, 32, 0.55)
+      );
+      border-radius: 24px;
+      border: 1px solid var(--border-glow);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.95),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      padding: 2.25rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.02), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      );
+      background-size: 100% 2px;
+      mix-blend-mode: soft-light;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .site-name {
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffdf74;
+      box-shadow: 0 0 8px rgba(255, 218, 116, 0.7);
+    }
+
+    .status-pill {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 0.2rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%);
+      white-space: nowrap;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+      line-height: 1.2;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    }
+
+    p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 40rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: var(--accent-soft);
+    }
+
+    /* Old Website Link Styling */
+    .old-link {
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .old-link a {
+      color: var(--accent-soft);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: 0.2s ease;
+    }
+
+    .old-link a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .meta-label {
+      opacity: 0.65;
+    }
+
+    .meta-value {
+      color: var(--accent-soft);
+    }
+
+    .music-control {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .music-button {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(8, 8, 10, 0.85);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition:
+        background 160ms ease,
+        transform 80ms ease,
+        box-shadow 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .music-button:hover {
+      background: rgba(18, 18, 24, 0.98);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .music-button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bg-music" src="snow-world-theme.mp3" autoplay loop></audio>
+
+  <div class="wrapper">
+    <div class="glass-card">
+      <div class="title-row">
+        <div class="site-name">
+          <span class="dot"></span>
+          <span>stoutref2</span>
+        </div>
+
+        <div class="status-pill">
+          WORK IN PROGRESS
+        </div>
+      </div>
+
+      <h1>stoutref2 is working on this site.</h1>
+
+      <p>
+        <span class="highlight">
+          stoutref2 is working on this site, please be patient while it is being rebuilt.
+        </span>
+        <br /><br />
+        This space is a temporary portal, an in-between room while the main site
+        is being reconstructed.
+        <br /><br />
+        <span class="highlight">Last updated NOV/21/24.</span>
+      </p>
+
+      <!--NEW: Old Website link -->
+      <div class="old-link">
+        <a href="old_index.html" >Old Website</a>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Rebuilding</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Contact</span>
+          <span class="meta-value">stoutref2@gmail.com</span>
+        </div>
+        <div class="meta-item music-control">
+          <button id="toggle-music" class="music-button">
+            <span class="music-icon"></span>
+            <span>Pause Music</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("toggle-music");
+
+    const TARGET_VOLUME = 0.25;
+
+    window.addEventListener("load", () => {
+      if (audio) audio.volume = TARGET_VOLUME;
+    });
+
+    const unlockAudio = () => {
+      if (audio.paused) {
+        audio.volume = TARGET_VOLUME;
+        audio.play().catch(() => {});
+      }
+      document.removeEventListener("click", unlockAudio);
+    };
+
+    document.addEventListener("click", unlockAudio, { once: true });
+
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (audio.paused) {
+        audio.volume = TARGET_VOLUME;
+        audio.play();
+        toggleBtn.classList.remove("paused");
+        toggleBtn.querySelector("span:last-child").textContent = "Pause Music";
+      } else {
+        audio.pause();
+        toggleBtn.classList.add("paused");
+        toggleBtn.querySelector("span:last-child").textContent = "Play Music";
+      }
+    });
+  </script>
+
+</body>
+</html>
