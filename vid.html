@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout</title>
+  <style>
+    :root{
+      --bg: #14161a;
+      --panel: #171a1f;
+      --text: #e7e7ea;
+      --muted: rgba(231,231,234,.72);
+      --line: rgba(255,255,255,.08);
+      --link: rgba(231,231,234,.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .left{
+      padding: 56px 56px 48px;
+      background: linear-gradient(180deg, var(--panel), var(--bg));
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start; /* keeps left indentation */
+    }
+
+    .content{
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .kicker{
+      font-size: 0.95rem;
+      color: var(--muted);
+      letter-spacing: .02em;
+      margin-bottom: 18px;
+    }
+
+    h1{
+      font-size: 1.6rem;
+      line-height: 1.25;
+      font-weight: 650;
+      margin-bottom: 18px;
+    }
+
+    p{
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .section{
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2{
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin-bottom: 10px;
+    }
+
+    ul{
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    a{
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(231,231,234,.25);
+    }
+    a:hover{ border-bottom-color: rgba(231,231,234,.65); }
+
+    @media (max-width: 900px){
+      .left{
+        padding: 32px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="left">
+      <div class="content">
+        <div class="kicker">stoutref2</div>
+
+        <h1>Videos</h1>
+
+        <p>
+          I edit for various small content creators for free
+        </p>
+
+        <div class="section">
+          <h2>Works</h2>
+          <ul>
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/watch?v=brQHwrZUXZE">
+            </iframe>
+
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/watch?v=9w22GBNqVfY&t">
+            </iframe>
+
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/watch?v=Ygz4jA_DH3U&t">
+            </iframe>
+
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Works</h2>
+          <ul>
+            <li><a href="vid.html">videos</a></li>
+            <li><a href="3d.html">3D</a></li>
+            <li><a href="photo.html">photos</a></li>
+            <li><a href="bots.html">bots</a></li>
+            <li><a href="index.html">main</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
